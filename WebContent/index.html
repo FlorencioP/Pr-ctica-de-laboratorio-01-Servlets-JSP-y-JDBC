@@ -4,23 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestión de personas en la Web</title>
+    <link rel="stylesheet" type="text/css" href="CSS/login.css" />
 </head>
 
 <body>
-    <form>
+    <img id="logo" src="Recursos/Logo.png" alt="EmpresasCorp" />
+    <form id="formulario01">
         <label for="correo">Correo: </label>
-        <input type="text" name="correo" placeholder="ingrese el correo..." />
-        <br>
-        <!-- Aqui empieza la magia-->
+        <input type="text" name="correo" placeholder="Ingrese su correo" />
+
         <label for="password">Contraseña: </label>
-        <input type="password" name="password" placeholder="ingrese la contraseña..." />
-        <br>
+        <input type="password" name="password" placeholder="Ingrese su contraseña" /><br>
+        <input id="login" type="submit" value="Iniciar Sesion">
+
     </form>
-    <ul>
-        <li><a href="/EjemploPersonaWebJDBC/CrearTablaController">Viñedo del amanecer</a></li>
-        <li><a href="HTMLs/crear_persona.html">Aero Postal</a></li>
-        <li><a href="HTMLs/buscar_persona.html">Supermercado 9sito</a></li>
-    </ul>
+    <div id="empresas">
+
+        <div class="cont">
+            <a href="/EjemploPersonaWebJDBC/CrearTablaController">Viñedo del amanecer <br><br> <img id="vino" src="Recursos/Viñedo el amanecer.jpg" alt="Viñedo el amanecer" /></a>
+
+        </div>
+
+        <div class="cont">
+            <a href="HTMLs/crear_persona.html">Aero Postal <br><br> <img id="ropa" src="Recursos/Aeropost.jpg" alt="Aeropostale" /></a>
+        </div>
+
+        <div class="cont">
+            <a href="HTMLs/buscar_persona.html">Supermercado 9sito <br><br> <img id="comid" src="Recursos/9cito.jpg" alt="9cito" /></a>
+        </div>
+    </div>
 </body>
 
 </html>
