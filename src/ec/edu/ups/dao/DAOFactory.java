@@ -1,5 +1,5 @@
 package ec.edu.ups.dao;
-
+//qweqwe
 public abstract class DAOFactory {
 	
 	protected static DAOFactory factory = new JDBCDAOFactory();

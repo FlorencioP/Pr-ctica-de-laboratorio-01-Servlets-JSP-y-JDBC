@@ -1,5 +1,5 @@
 package ec.edu.ups.dao;
-
+//qweqwe
 import java.util.List;
 
 public interface GenericcDAO<T,ID> {
