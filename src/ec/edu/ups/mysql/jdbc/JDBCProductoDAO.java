@@ -7,7 +7,7 @@ import java.util.List;
 
 import ec.edu.ups.dao.ProductosDao;
 import ec.edu.ups.modelo.Producto;
-
+//jnmi
 public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implements ProductosDao{
 	@Override
 	public void create (Producto producto) {
