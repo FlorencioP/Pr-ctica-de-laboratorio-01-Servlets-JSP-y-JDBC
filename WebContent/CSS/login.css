@@ -31,12 +31,14 @@ body {
     float: left;
     background-color: rgb(255, 255, 255, 0.9);
     border: black thick solid;
-    padding: 3%;
+    padding: 2%;
     border-radius: 25px;
     font-size: 200%;
-    margin-left: 10%;
+    margin-left: 7%;
     margin-top: 3%;
     text-align: center;
+    width: 300px;
+    height: 500px;
 }
 
 #empresas a img {
