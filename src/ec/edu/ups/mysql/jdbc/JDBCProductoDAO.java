@@ -33,7 +33,7 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 	}
 	
 	
-	public List<Producto> readC(Integer id) {
+	public List<Producto> findC(Integer id) {
 		List<Producto> list = new ArrayList<Producto>();
 		ResultSet rs = conexion.query("Select * From Productos When Categorias_cat_id="+id);
 		try {
@@ -43,13 +43,13 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 										rs.getInt("Categorias_cat_id")));
 			}
 		}catch(SQLException e) {
-			System.out.println(">>>WARNING (JDBCPersonaDAO:readC): " + e.getMessage());
+			System.out.println(">>>WARNING (JDBCPersonaDAO:findC): " + e.getMessage());
 		}
 		return list;
 	}
 	
 	
-	public List<Producto> readE(Integer id) {
+	public List<Producto> findE(Integer id) {
 		List<Producto> list = new ArrayList<Producto>();
 		ResultSet rs = conexion.query("Select * From Productos When Empresas_emp_id="+id);
 		try {
@@ -59,7 +59,7 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 										rs.getInt("Categorias_cat_id")));
 			}
 		}catch(SQLException e) {
-			System.out.println(">>>WARNING (JDBCPersonaDAO:readE): " + e.getMessage());
+			System.out.println(">>>WARNING (JDBCPersonaDAO:findE): " + e.getMessage());
 		}
 		return list;
 	}
