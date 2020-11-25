@@ -11,14 +11,16 @@ import ec.edu.ups.modelo.Producto;
 
 import ec.edu.ups.modelo.Usuario;
 
-public abstract class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements UsuariosDAO{
+public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements UsuariosDAO{
 
 	public Usuario validarU(String correo, String password) {
 		Usuario us=null;
+		System.out.println("correo: "+correo);
+		System.out.println("pasword: "+password);
 		ResultSet rs = conexion.query("Select *  From Usuarios Where us_correo='"+correo+"' AND us_password='"+
 					   					password+"'");
 		try {
-			if(rs != null) {
+			if(rs != null && rs.next()) {
 				us=new Usuario(rs.getInt("us_id"), rs.getString("us_nombre"), rs.getString("us_apellido"), 
 								rs.getString("us_correo"), rs.getString("us_password"), rs.getString("us_rol").charAt(0), 
 								rs.getInt("Empresas_emp_id"));
@@ -56,6 +58,27 @@ public abstract class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> im
 	@Override
 	public void delete(Usuario usuario) {
 		conexion.update("DELETE FROM Usuarios WHERE id = " + usuario.getId());
+	}
+
+
+	@Override
+	public void create(Usuario entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Usuario read(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Usuario> find() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

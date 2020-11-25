@@ -10,4 +10,12 @@ public abstract class DAOFactory {
 	
 	public abstract ProductosDao getProductosDao();
 	
+	public abstract UsuariosDAO getUsuariosDAO();
+	
+	public abstract CAtegoriaDAO getcCAtegoriaDAO();
+	
+	public abstract PedidoCabeceraDAO getpeCabeceraDAO();
+	
+	public abstract PedidoDetalleDAO getpeDetalleDAO();
+	
 }

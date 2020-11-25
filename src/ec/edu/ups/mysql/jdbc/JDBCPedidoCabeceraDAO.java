@@ -2,11 +2,12 @@ package ec.edu.ups.mysql.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import ec.edu.ups.dao.PedidoCabeceraDAO;
 import ec.edu.ups.modelo.PedidoCabecera;
 
-public abstract class JDBCPedidoCabeceraDAO extends JDBCGenericDAO<PedidoCabecera, Integer> implements PedidoCabeceraDAO {
+public class JDBCPedidoCabeceraDAO extends JDBCGenericDAO<PedidoCabecera, Integer> implements PedidoCabeceraDAO {
 	
 	@Override
 	public PedidoCabecera read(Integer id) {
@@ -29,6 +30,30 @@ public abstract class JDBCPedidoCabeceraDAO extends JDBCGenericDAO<PedidoCabecer
 	
 	public void modEst(char est, int id) {
 		conexion.update("Update Productos_Cabecera Set pedc_estado="+est+"where pedC_id="+id);
+	}
+
+	@Override
+	public void create(PedidoCabecera entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(PedidoCabecera entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(PedidoCabecera entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<PedidoCabecera> find() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
