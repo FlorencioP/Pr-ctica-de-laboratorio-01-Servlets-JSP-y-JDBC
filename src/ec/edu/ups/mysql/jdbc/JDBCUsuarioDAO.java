@@ -2,11 +2,13 @@ package ec.edu.ups.mysql.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import ec.edu.ups.dao.UsuariosDAO;
 import ec.edu.ups.modelo.Producto;
+
 import ec.edu.ups.modelo.Usuario;
 
 public abstract class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements UsuariosDAO{
@@ -27,6 +29,7 @@ public abstract class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> im
 		return us;
 	}
 	
+
 	public List<Usuario> findU() {
 		List<Usuario> list=new ArrayList<Usuario>();
 		ResultSet rs = conexion.query("Select * From Usuarios");
@@ -55,6 +58,6 @@ public abstract class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> im
 		conexion.update("DELETE FROM Usuarios WHERE id = " + usuario.getId());
 	}
 	
-	
+
 	
 }

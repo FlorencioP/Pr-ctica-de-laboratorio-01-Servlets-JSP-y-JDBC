@@ -1,5 +1,5 @@
 package ec.edu.ups.modelo;
-
+//qweqwe
 public class Producto {
 	private static final long serialVersionUID = 1L;
 	private int id;
