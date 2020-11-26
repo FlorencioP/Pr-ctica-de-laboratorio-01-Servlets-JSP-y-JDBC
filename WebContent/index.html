@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EmpresasCorp</title>
+    <link rel="stylesheet" type="text/css" href="CSS/login.css" />
+</head>
+
+<body>
+    <img id="logo" src="Recursos/Logo.png" alt="EmpresasCorp" />
+    <form id="formulario01"  action="Login" method="post">
+        <label for="correo">Correo: </label>
+        <input type="text" name="correo" placeholder="Ingrese su correo" />
+
+        <label for="password">Contraseña: </label>
+        <input type="password" name="password" placeholder="Ingrese su contraseña" /><br>
+        <input id="login" type="submit" value="Iniciar Sesion">
+
+    </form>
+    <div id="empresas">
+         <form action="VisualizacionProductosInvitado" method="post">
+       		<div class="cont">
+	            <a>Viñedo del amanecer <br><br> <img id="vino" src="Recursos/Viñedo el amanecer.jpg" alt="Viñedo el amanecer" /></a>
+	            <p>El viñedo del amanecer es <br> la bodega principal de <br> licores de Mondstadt <br> y se especializa en elaborar<br> vino de diente de león.</p>
+	        	<input id="wine" name="idEmp" type="hidden" value="1" >
+	        	<input type="submit" value="entrar" >
+	        </div>
+        </form>
+
+        <div class="cont">
+            <a href="HTMLs/Invitado/invAer.html">Aeropostale <br><br> <img id="ropa" src="Recursos/Aeropost.jpg" alt="Aeropostale" /></a>
+            <p>Es una empresa textil de <br>Estados Unidos dedicada a la<br> venta de ropa informal<br> para jóvenes</p>
+        </div>
+
+        <div class="cont">
+            <a href="HTMLs/Invitado/inv9ci.html">Supermercado 9sito <br><br> <img id="comid" src="Recursos/9cito.jpg" alt="9cito" /></a>
+            <p>Es una tienda que <br>ofrese viveres de <br> consumo diario</p>
+        </div>
+    </div>
+</body>
+
+</html>
