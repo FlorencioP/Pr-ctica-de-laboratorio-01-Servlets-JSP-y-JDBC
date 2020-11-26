@@ -1,3 +1,4 @@
+
 function buscarCat() {
 	var combo = document.getElementById("cat");
 	var selected = combo.options[combo.selectedIndex].text;
@@ -17,7 +18,6 @@ function buscarCat() {
 
 function buscar(select) {
 
-    var mail = document.getElementById("textoabusc").value;
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari 
             xmlhttp = new XMLHttpRequest();
@@ -34,5 +34,6 @@ function buscar(select) {
 
         xmlhttp.open("GET", "/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/FiltrarProdPorCatInv?idCat="+select, true);
         xmlhttp.send();
+
     return false;
 }

@@ -37,6 +37,7 @@ public class VisualizacionProductosInvitado extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String url=null;
 		String url2=null;
 		try {
@@ -48,6 +49,7 @@ public class VisualizacionProductosInvitado extends HttpServlet {
 			url = "/JSPs/error.jsp";
 		}
 		getServletContext().getRequestDispatcher(url).forward(request, response);
+
 	}
 
 }
