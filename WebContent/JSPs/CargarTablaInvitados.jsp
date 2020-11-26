@@ -30,10 +30,6 @@
 	       }
 	    %>
 	
-	    <tr>
-	        <td class='tg-y698' colspan='10'> No existen Telefonos registrado en el sistema </td>
-	    </tr>
-	
 	</table>
 </body>
 </html>

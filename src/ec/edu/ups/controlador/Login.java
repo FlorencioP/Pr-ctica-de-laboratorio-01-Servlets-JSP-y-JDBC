@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
 			String password = request.getParameter("password");
 			usu = usuDAO.validarU(correo, password);
 			request.setAttribute("usu", usu);
-			url = "/JSPs/UsuValidar.jsp";
+			url = "/HTMLs/User/usrVin.jsp";
 		} catch (Exception e) {
 			url = "/JSPs/error.jsp";
 		}
