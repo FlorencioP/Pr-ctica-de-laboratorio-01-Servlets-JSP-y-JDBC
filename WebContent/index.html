@@ -9,7 +9,7 @@
 
 <body>
     <img id="logo" src="Recursos/Logo.png" alt="EmpresasCorp" />
-    <form id="formulario01">
+    <form id="formulario01"  action="Login" method="post">
         <label for="correo">Correo: </label>
         <input type="text" name="correo" placeholder="Ingrese su correo" />
 
@@ -19,11 +19,14 @@
 
     </form>
     <div id="empresas">
-
-        <div class="cont">
-            <a href="HTMLs/Invitado/invVin.html">Viñedo del amanecer <br><br> <img id="vino" src="Recursos/Viñedo el amanecer.jpg" alt="Viñedo el amanecer" /></a>
-            <p>El viñedo del amanecer es <br> la bodega principal de <br> licores de Mondstadt <br> y se especializa en elaborar<br> vino de diente de león.</p>
-        </div>
+         <form action="VisualizacionProductosInvitado" method="post">
+       		<div class="cont">
+	            <a>Viñedo del amanecer <br><br> <img id="vino" src="Recursos/Viñedo el amanecer.jpg" alt="Viñedo el amanecer" /></a>
+	            <p>El viñedo del amanecer es <br> la bodega principal de <br> licores de Mondstadt <br> y se especializa en elaborar<br> vino de diente de león.</p>
+	        	<input id="wine" name="idEmp" type="hidden" value="1" >
+	        	<input type="submit" value="entrar" >
+	        </div>
+        </form>
 
         <div class="cont">
             <a href="HTMLs/Invitado/invAer.html">Aeropostale <br><br> <img id="ropa" src="Recursos/Aeropost.jpg" alt="Aeropostale" /></a>

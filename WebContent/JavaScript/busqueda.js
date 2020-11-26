@@ -30,7 +30,7 @@ function buscar() {
             }
         };
 
-        xmlhttp.open("GET", "../Ajax/peticioNumsMail.html", true);
+        xmlhttp.open("GET", "/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/JSPs/CargarTablaInvitados.jsp", true);
         xmlhttp.send();
     }
     return false;

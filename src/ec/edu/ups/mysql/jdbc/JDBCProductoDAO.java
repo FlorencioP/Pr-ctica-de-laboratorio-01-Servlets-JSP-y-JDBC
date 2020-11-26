@@ -28,8 +28,8 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 		try {
 			if(rs != null && rs.next()) {
 				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
-										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("Empresas_emp_id"),
-										rs.getInt("Categorias_cat_id")));
+										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
+										rs.getInt("categorias_cat_id")));
 			}
 		}catch(SQLException e) {
 			System.out.println(">>>WARNING (JDBCPersonaDAO:find): " + e.getMessage());
@@ -42,11 +42,11 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 	public List<Producto> findC(Integer id) {
 
 		List<Producto> list = new ArrayList<Producto>();
-		ResultSet rs = conexion.query("Select * From Productos When Categorias_cat_id="+id);
+		ResultSet rs = conexion.query("Select * From Productos Where Categorias_cat_id="+id);
 		try {
 			if(rs != null && rs.next()) {
 				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
-										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("Empresas_emp_id"),
+										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
 										rs.getInt("Categorias_cat_id")));
 			}
 		}catch(SQLException e) {
@@ -62,13 +62,13 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 	public List<Producto> findE(Integer id) {
 
 		List<Producto> list = new ArrayList<Producto>();
-		ResultSet rs = conexion.query("Select * From Productos When Empresas_emp_id="+id);
+		ResultSet rs = conexion.query("Select * From Productos Where empresas_emp_id="+id);
 		try {
-			if(rs != null && rs.next()) {
-				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
-										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("Empresas_emp_id"),
-										rs.getInt("Categorias_cat_id")));
-			}
+				while (rs.next()) {
+					list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
+							rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
+							rs.getInt("categorias_cat_id")));
+				}
 		}catch(SQLException e) {
 
 			System.out.println(">>>WARNING (JDBCPersonaDAO:findE): " + e.getMessage());

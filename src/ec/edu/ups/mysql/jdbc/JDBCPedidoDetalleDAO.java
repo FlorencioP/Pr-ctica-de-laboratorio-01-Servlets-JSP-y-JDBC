@@ -8,7 +8,7 @@ import java.util.List;
 import ec.edu.ups.dao.PedidoDetalleDAO;
 import ec.edu.ups.modelo.PedidoDetalle;
 
-public abstract class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer> implements PedidoDetalleDAO{
+public class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer> implements PedidoDetalleDAO{
 	public List<PedidoDetalle> listPed(int id){
 		List<PedidoDetalle> lis= new ArrayList<PedidoDetalle>();
 		ResultSet rs = conexion.query("Select * From Pedidos_Detalle When pedidos_cab_pedc_id="+id);
@@ -39,6 +39,18 @@ public abstract class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle,
 		conexion.update("Update Pedidos_Detalle Set pedd_cantidad="+pedidoDet.getCantidad()+
 						",pedidos_cab_pedc_id="+pedidoDet.getFKPedCabID()+",productos_prod_id="+pedidoDet.getFKProdID()+
 						"where pedd_id="+pedidoDet.getId());
+	}
+
+	@Override
+	public PedidoDetalle read(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PedidoDetalle> find() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

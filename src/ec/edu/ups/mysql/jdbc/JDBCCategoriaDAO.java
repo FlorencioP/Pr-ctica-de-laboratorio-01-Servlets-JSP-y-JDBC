@@ -8,7 +8,7 @@ import java.util.List;
 import ec.edu.ups.dao.CAtegoriaDAO;
 import ec.edu.ups.modelo.Categoria;
 
-public abstract class JDBCCategoriaDAO extends JDBCGenericDAO<Categoria, Integer> implements CAtegoriaDAO{
+public class JDBCCategoriaDAO extends JDBCGenericDAO<Categoria, Integer> implements CAtegoriaDAO{
 	@Override
 	public Categoria read(Integer id) {
 		Categoria cat= null;
@@ -36,6 +36,30 @@ public abstract class JDBCCategoriaDAO extends JDBCGenericDAO<Categoria, Integer
 			System.out.println(">>>WARNING (JDBCCategoriasDAO:catEmp): " + e.getMessage());
 		}
 		return lis;
+	}
+
+	@Override
+	public void create(Categoria entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Categoria entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Categoria entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Categoria> find() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

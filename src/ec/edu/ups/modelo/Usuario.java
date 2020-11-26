@@ -65,5 +65,13 @@ public class Usuario {
 	public void setFKEmpID(int fKEmpID) {
 		FKEmpID = fKEmpID;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo
+				+ ", password=" + password + ", rol=" + rol + ", FKEmpID=" + FKEmpID + "]";
+	}
+	
+	
 	
 }
