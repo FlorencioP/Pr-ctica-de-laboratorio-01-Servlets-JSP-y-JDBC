@@ -25,7 +25,6 @@ public class Login extends HttpServlet {
      */
     public Login() {
         usuDAO= DAOFactory.getFactory().getUsuariosDAO();
-        usu = new Usuario(1,"qwe","qwe","qwe","qwe",'q',1);
     }
 
 	/**
