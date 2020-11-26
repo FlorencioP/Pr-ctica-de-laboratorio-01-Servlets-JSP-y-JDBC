@@ -15,16 +15,13 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 
 	public Usuario validarU(String correo, String password) {
 		Usuario us=null;
-		System.out.println("correo: "+correo);
-		System.out.println("pasword: "+password);
-		ResultSet rs = conexion.query("Select *  From Usuarios Where us_correo='"+correo+"' AND us_password='"+password+"'");
+		ResultSet rs = conexion.query("Select * From Usuarios Where us_correo='"+correo+"' AND us_password='"+password+"'");
 		try {
-			while(rs.next()){
-				if(rs != null) {
-					us=new Usuario(rs.getInt("us_id"), rs.getString("us_nombre"), rs.getString("us_apellido"), 
-							rs.getString("us_correo"), rs.getString("us_password"), rs.getString("us_rol").charAt(0), 
-							rs.getInt("empresas_emp_id"));
-				}
+			if(rs != null && rs.next()) {
+				System.out.println("nombre"+rs.getString("us_nombre"));
+				us =  new Usuario(rs.getInt("us_id"), rs.getString("us_nombre"), rs.getString("us_apellido"), 
+						rs.getString("us_correo"), rs.getString("us_password"), rs.getString("us_rol").charAt(0), 
+						rs.getInt("empresas_emp_id"));
 			}
 		}catch(SQLException e) {
 			System.out.println(">>>WARNING (JDBCUsuarioDAO:validarU): " + e.getMessage());

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>Ha ocurrido un error inesperado lo sentimos</h1>
 </body>
 </html>

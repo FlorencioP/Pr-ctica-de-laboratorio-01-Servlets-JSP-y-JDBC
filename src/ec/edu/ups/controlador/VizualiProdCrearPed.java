@@ -14,15 +14,14 @@ import ec.edu.ups.dao.ProductosDao;
 import ec.edu.ups.modelo.Producto;
 
 /**
- * Servlet implementation class FiltrarProdPorCatInv
+ * Servlet implementation class VizualiProdCrearPed
  */
-@WebServlet("/FiltrarProdPorCatInv")
-public class FiltrarProdPorCatInv extends HttpServlet {
+@WebServlet("/VizualiProdCrearPed")
+public class VizualiProdCrearPed extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private ProductosDao prodDAO;
-	
-    public FiltrarProdPorCatInv() {
+    public VizualiProdCrearPed() {
     	prodDAO= DAOFactory.getFactory().getProductosDao();
     }
 
@@ -31,35 +30,22 @@ public class FiltrarProdPorCatInv extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url=null;
-		int idCat=Integer.parseInt(request.getParameter("idCat"));
-		if(idCat==0) {
-			System.out.println("idcat="+idCat);
-			try {
-				int idEmp=1;
-				List<Producto> list= prodDAO.findE(idEmp);
-				request.setAttribute("listaProd", list);
-				url = "/HTMLs/Invitado/ActualizarTablaInv.jsp";
-			}catch(Exception e) {
-				url = "/JSPs/error.jsp";
-			}
-		}else {
-			try {
-				List<Producto> list= prodDAO.findC(idCat);
-				request.setAttribute("listaProd", list);
-				url = "/HTMLs/Invitado/ActualizarTablaInv.jsp";
-			}catch(Exception e) {
-				url = "/JSPs/error.jsp";
-			}
+		try {
+			int idEmp=Integer.parseInt(request.getParameter("idEmp"));
+			List<Producto> list= prodDAO.findE(idEmp);
+			request.setAttribute("listaProd", list);
+			url = "/HTMLs/User/usrVincreate.jsp";
+		}catch(Exception e) {
+			url = "/JSPs/error.jsp";
 		}
 		getServletContext().getRequestDispatcher(url).forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
