@@ -37,7 +37,7 @@ public class VisualizacionProductosInvitado extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
+
 		String url=null;
 		String url2=null;
 		try {
@@ -49,22 +49,7 @@ public class VisualizacionProductosInvitado extends HttpServlet {
 			url = "/JSPs/error.jsp";
 		}
 		getServletContext().getRequestDispatcher(url).forward(request, response);
-=======
-		
-		String url=null;
-		String url2=null;
-		try {
-			int idEmp=Integer.parseInt(request.getParameter("idEmp"));
-			List<Producto> list= prodDAO.findE(idEmp);
-			request.setAttribute("listaProd", list);
-			url = "/HTMLs/Invitado/invVin.jsp";
-		}catch(Exception e) {
-			url = "/JSPs/error.jsp";
-		}
-		getServletContext().getRequestDispatcher(url).forward(request, response);
-		
-		//doGet(request, response);
->>>>>>> branch 'Desarrollo-CCS' of https://github.com/FlorencioP/Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC.git
+
 	}
 
 }
