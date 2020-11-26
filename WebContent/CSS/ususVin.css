@@ -115,8 +115,9 @@ b {
 }
 
 #volver {
-    position: absolute;
-    padding-left: 90%;
+    clear: both;
+    position: fixed;
+    margin-left: 90%;
 }
 
 #volver img {
@@ -125,4 +126,14 @@ b {
 
 #volver img:hover {
     width: 51%;
+}
+
+#uno {
+    clear: both;
+    float: left;
+    margin-left: 40%;
+}
+
+#dos {
+    margin-left: 4%;
 }
