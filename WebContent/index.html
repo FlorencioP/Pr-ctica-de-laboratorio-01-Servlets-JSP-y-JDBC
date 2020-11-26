@@ -18,6 +18,8 @@
         <input id="login" type="submit" value="Iniciar Sesion">
 
     </form>
+    
+    
     <div id="empresas">
          <form action="VisualizacionProductosInvitado" method="post">
        		<div class="cont">
@@ -28,15 +30,25 @@
 	        </div>
         </form>
 
+
+
         <div class="cont">
             <a href="HTMLs/Invitado/invAer.html">Aeropostale <br><br> <img id="ropa" src="Recursos/Aeropost.jpg" alt="Aeropostale" /></a>
             <p>Es una empresa textil de <br>Estados Unidos dedicada a la<br> venta de ropa informal<br> para jóvenes</p>
         </div>
 
-        <div class="cont">
-            <a href="HTMLs/Invitado/inv9ci.html">Supermercado 9sito <br><br> <img id="comid" src="Recursos/9cito.jpg" alt="9cito" /></a>
-            <p>Es una tienda que <br>ofrese viveres de <br> consumo diario</p>
-        </div>
+
+
+
+		<!-- Cambiar el action para cuando se ponga la lista para los demas -->
+		<form action="EntrarMenuAdm" method="post">
+	        <div class="cont">
+	            <a href="HTMLs/Invitado/inv9ci.html">Supermercado 9sito <br><br> <img id="comid" src="Recursos/9cito.jpg" alt="9cito" /></a>
+	            <p>Es una tienda que <br>ofrese viveres de <br> consumo diario</p>
+	            <input id="9cito" name="idEmp" type="hidden" value="Carly@gmail.com" >
+	        	<input type="submit" value="Entrar" >
+	        </div>
+	    </form> 
     </div>
 </body>
 
