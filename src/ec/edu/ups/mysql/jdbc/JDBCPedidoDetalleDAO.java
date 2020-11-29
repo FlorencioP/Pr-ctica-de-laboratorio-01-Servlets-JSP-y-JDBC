@@ -11,11 +11,11 @@ import ec.edu.ups.modelo.PedidoDetalle;
 public class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer> implements PedidoDetalleDAO{
 	public List<PedidoDetalle> listPed(int id){
 		List<PedidoDetalle> lis= new ArrayList<PedidoDetalle>();
-		ResultSet rs = conexion.query("Select * From Pedidos_Detalle When pedidos_cab_pedc_id="+id);
+		ResultSet rs = conexion.query("Select pedd_id, pedd_cantidad, pedidos_cab_pedc_id, productos_prod_id, prod_nombre, prod_precio From Pedidos_Detalle , productos Where pedidos_cab_pedc_id= "+id+ " and productos_prod_id = prod_id;");
 		try {
-			if(rs!=null && rs.next()) {
-				lis.add(new PedidoDetalle(rs.getInt("pedD_id"), rs.getInt("pedD_cantidad"), 
-						rs.getInt("pedidos_cab_pedc_id"), rs.getInt("productos_prod_id")));
+			while (rs.next()) {
+				lis.add(new PedidoDetalle(rs.getInt("pedd_id"), rs.getInt("pedd_cantidad"), 
+						rs.getInt("pedidos_cab_pedc_id"), rs.getInt("productos_prod_id"), rs.getString("prod_nombre"), rs.getDouble("prod_precio")));
 			}
 		}catch(SQLException e) {
 			System.out.println(">>>WARNING (JDBCPedidoDetalleDAO:listPed): " + e.getMessage());

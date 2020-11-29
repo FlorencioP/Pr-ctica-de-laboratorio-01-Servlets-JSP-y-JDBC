@@ -1,6 +1,7 @@
 package ec.edu.ups.controlador;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,23 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import ec.edu.ups.dao.DAOFactory;
 import ec.edu.ups.dao.UsuariosDAO;
-
 import ec.edu.ups.modelo.Usuario;
 
 /**
- * Servlet implementation class EntrarMenuAdm
+ * Servlet implementation class MostrarUsers
  */
-@WebServlet("/EntrarMenuAdm")
-public class EntrarMenuAdm extends HttpServlet {
+@WebServlet("/MostrarUsers")
+public class MostrarUsers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	
-	private UsuariosDAO usuDao;
-	
+	private UsuariosDAO usuDao;  
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EntrarMenuAdm() {
+    public MostrarUsers() {
     	usuDao= DAOFactory.getFactory().getUsuariosDAO();
     }
 
@@ -34,29 +31,31 @@ public class EntrarMenuAdm extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String url=null;
+		try {
+			int idEmp=Integer.parseInt(request.getParameter("idEmp"));
+				
+				List<Usuario> list= usuDao.findU(idEmp);
+				
+				request.setAttribute("listaClis", list);
+
+			url = "/HTMLs/Admin/usersEmpresa.jsp";
+			
+		}catch(Exception e) {
+			System.out.println("Error : "+e) ;
+			url = "/JSPs/error.jsp";
+		}
+		getServletContext().getRequestDispatcher(url).forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 * Esto hay que editar mas luego
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url=null;
-		String url2="root";
-		try {
-			String idEmp=request.getParameter("idEmp");
-			
-			Usuario usu= usuDao.validarU(idEmp, url2);
-			
-			
-			request.setAttribute("usu", usu);
-			url = "/HTMLs/Admin/AdmVin.jsp";
-		}catch(Exception e) {
-			url = "/JSPs/error.jsp";
-		}
-		getServletContext().getRequestDispatcher(url).forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

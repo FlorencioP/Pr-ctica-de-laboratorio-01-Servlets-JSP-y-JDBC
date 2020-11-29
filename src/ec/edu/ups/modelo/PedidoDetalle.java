@@ -6,12 +6,16 @@ public class PedidoDetalle {
 	private int cantidad;
 	private int FKPedCabID;
 	private int FKProdID;
+	private String nombre;
+	private double d;
 	
-	public PedidoDetalle(int id, int cantidad, int FKPedCabId, int FKProdID) {
+	public PedidoDetalle(int id, int cantidad, int FKPedCabId, int FKProdID, String string, double d) {
 		this.setId(id);
 		this.setCantidad(cantidad);
-		this.setFKPedCabID(FKPedCabID);
+		this.setFKPedCabID(FKPedCabId);
 		this.setFKProdID(FKProdID);
+		this.setNombre(string);
+		this.setD(d);
 	}
 	
 	public int getId() {
@@ -37,6 +41,22 @@ public class PedidoDetalle {
 	}
 	public void setFKProdID(int fKProdID) {
 		FKProdID = fKProdID;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getD() {
+		return d;
+	}
+
+	public void setD(double d) {
+		this.d = d;
 	}
 	
 }

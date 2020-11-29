@@ -1,6 +1,12 @@
 package ec.edu.ups.modelo;
 //qweqwe
 public class Producto {
+	@Override
+	public String toString() {
+		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", descripcion=" + descripcion
+				+ ", dirImagen=" + dirImagen + ", FKEmpID=" + FKEmpID + ", FKCatID=" + FKCatID + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nombre;
@@ -10,7 +16,7 @@ public class Producto {
 	private int FKEmpID;
 	private int FKCatID;
 	
-	public Producto(int id, String nombre, float precio, String descripcion, String dirImagen, int FkEmp,int FKCatID) {
+	public Producto(int id, String nombre, float precio, String descripcion, String dirImagen, int FKEmpID,int FKCatID) {
 		this.setId(id);
 		this.setNombre(nombre);
 		this.setPrecio(precio);

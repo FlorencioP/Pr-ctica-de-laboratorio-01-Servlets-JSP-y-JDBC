@@ -6,5 +6,5 @@ import ec.edu.ups.modelo.Usuario;
 
 public interface UsuariosDAO extends GenericcDAO<Usuario, Integer>{
 		public abstract Usuario validarU(String correo, String password);
-		public abstract List<Usuario> findU();
+		public abstract List<Usuario> findU(int id);
 }

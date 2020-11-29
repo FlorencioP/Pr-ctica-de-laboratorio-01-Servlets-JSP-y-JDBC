@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ec.edu.ups.dao.UsuariosDAO;
-import ec.edu.ups.modelo.Producto;
+
 
 import ec.edu.ups.modelo.Usuario;
 
@@ -20,7 +20,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 	
 	try {
 			if(rs != null && rs.next()) {
-				System.out.println("nombre"+rs.getString("us_nombre"));
+				System.out.println("nombre: "+rs.getString("us_nombre"));
 				us =  new Usuario(rs.getInt("us_id"), rs.getString("us_nombre"), rs.getString("us_apellido"), 
 						rs.getString("us_correo"), rs.getString("us_password"), rs.getString("us_rol").charAt(0), 
 						rs.getInt("empresas_emp_id"));
@@ -33,14 +33,14 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 	}
 	
 
-	public List<Usuario> findU() {
+	public List<Usuario> findU(int id) {
 		List<Usuario> list=new ArrayList<Usuario>();
-		ResultSet rs = conexion.query("Select * From Usuarios");
+		ResultSet rs = conexion.query("Select * From usuarios where empresas_emp_id = "+id+" and us_rol = 'U';");
 		try {
-			if(rs != null) {
+			while (rs.next()) {
 				list.add(new Usuario(rs.getInt("us_id"), rs.getString("us_nombre"), rs.getString("us_apellido"), 
 						rs.getString("us_correo"), rs.getString("us_password"), rs.getString("us_rol").charAt(0), 
-						rs.getInt("Empresas_emp_id")));
+						rs.getInt("empresas_emp_id")));
 			}
 		}catch(SQLException e) {
 			System.out.println(">>>WARNING (JDBCUsuarioDAO:findU): " + e.getMessage());

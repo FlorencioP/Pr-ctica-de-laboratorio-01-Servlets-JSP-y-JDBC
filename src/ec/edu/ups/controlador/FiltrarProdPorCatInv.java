@@ -44,7 +44,7 @@ public class FiltrarProdPorCatInv extends HttpServlet {
 			}
 		}else {
 			try {
-				List<Producto> list= prodDAO.findC(idCat);
+				List<Producto> list= prodDAO.findC(idCat,1);
 				request.setAttribute("listaProd", list);
 				url = "/HTMLs/Invitado/ActualizarTablaInv.jsp";
 			}catch(Exception e) {

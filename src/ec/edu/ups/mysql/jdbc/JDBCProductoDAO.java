@@ -16,15 +16,15 @@ import ec.edu.ups.modelo.Producto;
 public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implements ProductosDao{
 	@Override
 	public void create (Producto producto) {
-			conexion.update("INSERT Productos Values("+producto.getId()+",'"+producto.getNombre()+"',"+
-							producto.getPrecio()+",'"+producto.getDescripcion()+"',"+producto.getDirImagen()+"',"+
-							producto.getFKEmpID()+","+producto.getFKCatID());
+			conexion.update(" INSERT INTO productos (prod_id, prod_nombre, prod_precio, prod_descripcion, prod_im, empresas_emp_id, categorias_cat_id, prod_estado) values ('"+producto.getId()+"','"+producto.getNombre()+"','"+
+							producto.getPrecio()+"','"+producto.getDescripcion()+"','"+producto.getDirImagen()+"','"+
+							producto.getFKEmpID()+"','"+producto.getFKCatID()+"','A');");
 	}
 	
 	@Override
 	public List<Producto> find() {
 		List<Producto> list = new ArrayList<Producto>();
-		ResultSet rs = conexion.query("Select * From Productos");
+		ResultSet rs = conexion.query("Select * From Productos where prod_estado = 'A'");
 		try {
 			if(rs != null && rs.next()) {
 				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
@@ -39,12 +39,12 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 	
 	
 
-	public List<Producto> findC(Integer id) {
+	public List<Producto> findC(Integer id, Integer emp) {
 
 		List<Producto> list = new ArrayList<Producto>();
-		ResultSet rs = conexion.query("Select * From Productos Where Categorias_cat_id="+id);
+		ResultSet rs = conexion.query("Select * From Productos Where Categorias_cat_id="+id+ " And prod_estado = 'A' and empresas_emp_id="+emp);
 		try {
-			if(rs != null && rs.next()) {
+			while (rs.next()) {
 				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
 										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
 										rs.getInt("Categorias_cat_id")));
@@ -62,7 +62,7 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 	public List<Producto> findE(Integer id) {
 
 		List<Producto> list = new ArrayList<Producto>();
-		ResultSet rs = conexion.query("Select * From Productos Where empresas_emp_id="+id);
+		ResultSet rs = conexion.query("Select * From Productos Where empresas_emp_id="+id+ " And prod_estado = 'A'");
 		try {
 				while (rs.next()) {
 					list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
@@ -77,12 +77,16 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 		return list;
 	}
 	
+	
+	
+	
+	
 	@Override
 	public Producto read(Integer id) {
 		Producto producto = null;
 		ResultSet rs = conexion.query("Select * From Productos When Empresas_emp_id="+id);
 		try {
-			if(rs != null && rs.next()) {
+			if(rs != null && rs.next() &&rs.getString("prod_estado")=="A") {
 				producto = new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
 										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("Empresas_emp_id"),
 										rs.getInt("Categorias_cat_id"));
@@ -98,14 +102,78 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 
 		conexion.update("Update Productos Set prod_nombre='"+producto.getNombre()+
 						"' , prod_precio="+producto.getPrecio()+", prod_descripcion='"+producto.getDescripcion()+
-						"', prod_im='"+producto.getDirImagen()+"',Empresas_emp_id="+producto.getFKEmpID()+
-						"Categorias_cat_id="+producto.getFKCatID()+" Where prod_id="+producto.getId());
+						"', prod_im='"+producto.getDirImagen()+"',empresas_emp_id="+producto.getFKEmpID()+
+						", categorias_cat_id="+producto.getFKCatID()+" Where prod_id="+producto.getId()+";");
 
 	}
 	
 	@Override
 	public void delete(Producto producto) {
-		conexion.update("DELETE FROM Productos WHERE id = " + producto.getId());
+		
+		conexion.update( " UPDATE productos set prod_estado = 'E' WHERE prod_id = " + producto.getId());
 	}
+
+	
+	
+	public int buscarUltId() {
+		
+		ResultSet valor = conexion.query("Select MAX(prod_id) from productos;");
+		int numero = 0 ;
+		try {
+			if (valor.next()) {
+				numero = valor.getInt("MAX(prod_id)");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Problema con buscarUltId");
+			e.printStackTrace();
+		}
+		System.out.println("Numero ID : " + (numero +1));
+		return numero + 1;
+	}
+
+	@Override
+	public List<Producto> findCnomb(int cat, int idEmp, String tex) {
+		
+		List<Producto> list = new ArrayList<Producto>();
+		ResultSet rs = conexion.query("Select * From Productos Where Categorias_cat_id="+cat+ " And prod_estado = 'A' and empresas_emp_id="+idEmp+" and prod_nombre rlike '"+tex+"'");
+		try {
+			while (rs.next()) {
+				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
+										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
+										rs.getInt("Categorias_cat_id")));
+			}
+		}catch(SQLException e) {
+
+			System.out.println(">>>WARNING (JDBCPersonaDAO:findC): " + e.getMessage());
+
+		}
+		return list;
+		
+	}
+	
+	
+	
+	//public Producto buscarPRO(int id) {
+		
+		//ResultSet rs = conexion.query("select * from productos where prod_id = "+id+";");
+		//Producto este = null;
+		
+		//try {
+		//	if (rs.next()) {
+	//			este = new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
+	//					rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("Empresas_emp_id"),
+	//					rs.getInt("Categorias_cat_id"));
+	//		}
+	//	} catch (SQLException e) {
+	//		// TODO Auto-generated catch block
+	//		System.out.println("Problema con buscaPRO");
+	//		e.printStackTrace();
+	//	}
+		
+		
+	//	return este;
+	//}
+	
 	
 }
