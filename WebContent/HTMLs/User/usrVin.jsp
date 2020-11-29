@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="ec.edu.ups.modelo.Producto"%>
+<%@page import="ec.edu.ups.modelo.Usuario"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -16,19 +17,28 @@
 	<body>
 		 <c:set var="u" scope="request" value="${usu}" />
 		 <p>Viñedo del Amanecer: Menu de Pedidos</p>
-	
+		 <% Usuario u = (Usuario) request.getAttribute("usu"); %>
+		 <% PrintWriter out2= response.getWriter();%>
+		 
 	    <div id="volver">
 	        <a href="../../index.html"><img src="../../Recursos/logout.png"></a>
 	    </div>
 	
-	
 	    <div id="verpedidos">
-	        <input type="button" value="Ver pedidos" onclick="buscarCat()" /><br>
+	        <input type="button" value="Ver pedidos" onclick="verPedidos(${u.id})" /><br>
 	    </div>
 	    
 	    <div id="crearpedidos">
-	        <input type="button" value="Crear pedidos" onclick="crearPedU(1)" /><br>
+	        <input type="button" value="Crear pedidos" onclick="crearPedU(${u.FKEmpID})" /><br>
 	    </div>
+	    
+	    <div id="crear">
+		 	<%  
+		 	   out.println("<input type='button' id='btnCrear' value='Confirmar Pedido' style='display:none' onclick='confirmar("+
+		 					u.getId()+","+u.getFKEmpID()+")' /><br>");
+		 	%>
+	    </div>
+	    
 	    <div id="pantalla">
 	    	
 	    </div>

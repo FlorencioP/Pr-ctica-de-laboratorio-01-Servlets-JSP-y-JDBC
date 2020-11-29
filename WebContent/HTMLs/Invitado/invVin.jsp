@@ -51,7 +51,7 @@
     </form>-->
 
     <div id="informacion">
-			<c:set var="p" scope="request" value="${listaProd}" />
+    		<c:set var="p" scope="request" value="${listaProd}" />
 			<% List<Producto> list = (List<Producto>) request.getAttribute("listaProd"); %>
 			<% PrintWriter out2= response.getWriter();%>
 			<table class='tg' style='width:95%'>
@@ -61,7 +61,6 @@
 			        <th class='tg-46ru'>Descripcion</th>
 			        <th class='tg-46ru'>Imagen</th>
 			    </tr>
-			
 			    <%
 		    		for (int i=0;i<list.size();i++){
 			    		Producto prod=list.get(i);
@@ -69,7 +68,6 @@
 			    					" class='tg-y698'>"+prod.getDescripcion()+"</td><td class='tg-y698'><img src='"+prod.getDirImagen()+"'>");
 			       	}
 			    %>
-			
 			</table>
     </div>
 

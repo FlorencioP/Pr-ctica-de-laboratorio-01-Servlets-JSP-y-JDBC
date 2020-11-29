@@ -21,15 +21,17 @@
 	        <th class='tg-46ru'>Precio</th>
 	        <th class='tg-46ru'>Descripcion</th>
 	        <th class='tg-46ru'>Imagen</th>
+	        <th class='tg-46ru'>Cantidad</th>
+	        <th class='tg-46ru'>Agregar</th>
 	    </tr>
 	
 	    <% for (int i=0;i<list.size();i++){
 	    		Producto prod=list.get(i);
 	    		out.println("<tr><td class='tg-y698'>"+prod.getNombre()+"</td><td class='tg-y698'>"+prod.getPrecio()+"</td><td" +
-	    					" class='tg-y698'>"+prod.getDescripcion()+"</td><td class='tg-y698'><img src='"+prod.getDirImagen()+"'>");
+	    					" class='tg-y698'>"+prod.getDescripcion()+"</td><td class='tg-y698'><img src='"+prod.getDirImagen()+"'>"+
+	    					"</td><td class='tg-y698'><input type='text' size='5'></td><td class='tg-y698'><input type='button' value='agregar' onclick='recogerDat(this)'></td>");
 	       }
 	    %>
-	
 	</table>
 </body>
 </html>

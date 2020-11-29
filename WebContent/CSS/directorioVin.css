@@ -3,9 +3,10 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    /*Se queda en el centro no se mueve*/
     background-image: url(../Recursos/FondoWinery1.jpg);
 }
+
+.editar {color: blue; cursor:pointer;}
 
 .tg {
     border-collapse: collapse;
@@ -66,7 +67,6 @@ body {
     float: left;
     margin-top: 1.80%;
     font-size: 150%;
-<<<<<<< HEAD
 }
 
 label {
@@ -130,7 +130,6 @@ b {
 #volver:hover {
     margin-left: 4%;
     margin-right: 1%;
-=======
     margin-left: 25%;
     margin-right: 10%;
 }
@@ -190,5 +189,4 @@ b {
 
 #volver img:hover {
     width: 51%;
->>>>>>> branch 'Desarrollo-CCS' of https://github.com/FlorencioP/Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC.git
 }

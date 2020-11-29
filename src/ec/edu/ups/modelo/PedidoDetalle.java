@@ -7,7 +7,7 @@ public class PedidoDetalle {
 	private int FKPedCabID;
 	private int FKProdID;
 	
-	public PedidoDetalle(int id, int cantidad, int FKPedCabId, int FKProdID) {
+	public PedidoDetalle(int id, int cantidad, int FKPedCabID, int FKProdID) {
 		this.setId(id);
 		this.setCantidad(cantidad);
 		this.setFKPedCabID(FKPedCabID);
