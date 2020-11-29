@@ -7,6 +7,8 @@ body {
     background-image: url(../Recursos/FondoWinery1.jpg);
 }
 
+.editar {color: blue; cursor:pointer;}
+
 .tg {
     border-collapse: collapse;
     border-spacing: 0;

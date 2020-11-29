@@ -6,5 +6,5 @@ import ec.edu.ups.modelo.PedidoDetalle;
 
 public interface PedidoDetalleDAO extends GenericcDAO<PedidoDetalle, Integer>{
 	public abstract List<PedidoDetalle> listPed(int id);
-	
+	public abstract int ultimoID();
 }

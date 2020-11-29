@@ -29,12 +29,29 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 			if(rs != null && rs.next()) {
 				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
 										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
-										rs.getInt("categorias_cat_id")));
+										rs.getInt("categorias_cat_id"),(rs.getString("prod_estado")).charAt(0)));
 			}
 		}catch(SQLException e) {
-			System.out.println(">>>WARNING (JDBCPersonaDAO:find): " + e.getMessage());
+			System.out.println(">>>WARNING (JDBCProductoDAO:find): " + e.getMessage());
 		}
 		return list;
+	}
+	
+	
+	public Integer findID(String nombre) {
+
+		Integer id=0;
+		ResultSet rs = conexion.query("Select prod_id From Productos Where prod_nombre='"+nombre+"'");
+		try {
+			if(rs != null && rs.next()) {
+				id=rs.getInt("prod_id");
+			}
+		}catch(SQLException e) {
+
+			System.out.println(">>>WARNING (JDBCProductoDAO:findID): " + e.getMessage());
+
+		}
+		return id;
 	}
 	
 	
@@ -47,11 +64,11 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 			while (rs.next()) {
 				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
 										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
-										rs.getInt("Categorias_cat_id")));
+										rs.getInt("Categorias_cat_id"),(rs.getString("prod_estado")).charAt(0)));
 			}
 		}catch(SQLException e) {
 
-			System.out.println(">>>WARNING (JDBCPersonaDAO:findC): " + e.getMessage());
+			System.out.println(">>>WARNING (JDBCProductoDAO:findC): " + e.getMessage());
 
 		}
 		return list;
@@ -67,11 +84,11 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 				while (rs.next()) {
 					list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
 							rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
-							rs.getInt("categorias_cat_id")));
+							rs.getInt("categorias_cat_id"),(rs.getString("prod_estado")).charAt(0)));
 				}
 		}catch(SQLException e) {
 
-			System.out.println(">>>WARNING (JDBCPersonaDAO:findE): " + e.getMessage());
+			System.out.println(">>>WARNING (JDBCProductoDAO:findE): " + e.getMessage());
 
 		}
 		return list;
@@ -84,12 +101,12 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 	@Override
 	public Producto read(Integer id) {
 		Producto producto = null;
-		ResultSet rs = conexion.query("Select * From Productos When Empresas_emp_id="+id);
+		ResultSet rs = conexion.query("Select * From Productos Where prod_id="+id);
 		try {
 			if(rs != null && rs.next() &&rs.getString("prod_estado")=="A") {
 				producto = new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
 										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("Empresas_emp_id"),
-										rs.getInt("Categorias_cat_id"));
+										rs.getInt("Categorias_cat_id"),(rs.getString("prod_estado")).charAt(0));
 			}
 		}catch(SQLException e) {
 			System.out.println(">>>WARNING (JDBCPersonaDAO:read): " + e.getMessage());

@@ -10,5 +10,5 @@ public interface ProductosDao extends GenericcDAO<Producto, Integer> {
 	public abstract int buscarUltId();
 	//public abstract Producto buscarPRO(int id);
 	public abstract List<Producto> findCnomb(int cat, int idEmp, String tex);
-	
+	public abstract Integer findID(String nombre);
 }

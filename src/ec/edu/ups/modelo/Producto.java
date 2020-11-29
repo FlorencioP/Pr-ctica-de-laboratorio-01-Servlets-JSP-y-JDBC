@@ -15,15 +15,17 @@ public class Producto {
 	private String dirImagen;
 	private int FKEmpID;
 	private int FKCatID;
+	private char estado;
 	
-	public Producto(int id, String nombre, float precio, String descripcion, String dirImagen, int FKEmpID,int FKCatID) {
+	public Producto(int id, String nombre, float precio, String descripcion, String dirImagen,int FkEmpID,int FKCatID,char estado) {
 		this.setId(id);
 		this.setNombre(nombre);
 		this.setPrecio(precio);
 		this.setDescripcion(descripcion);
 		this.setDirImagen(dirImagen);
-		this.setFKEmpID(FKEmpID);
+		this.setFKEmpID(FkEmpID);
 		this.setFKCatID(FKCatID);
+		this.setEstado(estado);
 	}
 	
 	public int getId() {
@@ -69,6 +71,14 @@ public class Producto {
 
 	public void setFKEmpID(int fKEmpID) {
 		FKEmpID = fKEmpID;
+	}
+
+	public char getEstado() {
+		return estado;
+	}
+
+	public void setEstado(char estado) {
+		this.estado = estado;
 	}
 	
 	

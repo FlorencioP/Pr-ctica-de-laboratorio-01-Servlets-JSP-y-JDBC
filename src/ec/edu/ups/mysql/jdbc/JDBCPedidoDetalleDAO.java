@@ -30,7 +30,7 @@ public class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer>
 
 	@Override
 	public void create(PedidoDetalle pedidoDetalle) {
-		conexion.update("Insert Pedidos_Detalle Values("+pedidoDetalle.getId()+","+pedidoDetalle.getCantidad()+","+
+		conexion.update("Insert into Pedidos_Detalle Values("+pedidoDetalle.getId()+","+pedidoDetalle.getCantidad()+","+
 						pedidoDetalle.getFKPedCabID()+","+pedidoDetalle.getFKProdID()+")");
 	}
 
