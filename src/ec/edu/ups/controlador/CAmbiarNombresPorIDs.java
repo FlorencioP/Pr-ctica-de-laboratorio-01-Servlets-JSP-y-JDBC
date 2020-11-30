@@ -62,7 +62,7 @@ public class CAmbiarNombresPorIDs extends HttpServlet {
 			}
 			for(int i=0;i<ejem.size();i++) {
 				int idDet=pedDetDAO.ultimoID()+1;
-				PedidoDetalle pedDet= new PedidoDetalle(idDet, ejem2.get(i), idCab2, ejem.get(i));
+				PedidoDetalle pedDet= new PedidoDetalle(idDet, ejem2.get(i), idCab2, ejem.get(i),"ste",0.32);
 				pedDetDAO.create(pedDet);
 			}
 			url="/HTMLs/User/MensajeExito.jsp";

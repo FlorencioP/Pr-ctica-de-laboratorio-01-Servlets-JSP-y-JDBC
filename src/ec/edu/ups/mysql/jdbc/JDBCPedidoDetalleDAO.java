@@ -52,5 +52,20 @@ public class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer>
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public int ultimoID(){
+		int id=0;
+		ResultSet rs = conexion.query("select * from pedidos_detalle "
+									 + "order by pedd_id desc "
+									 + "limit 1;");
+		try{
+			if(rs != null && rs.next()) {
+				id=rs.getInt("pedd_id");
+			}
+		}catch (SQLException e) {
+			System.out.println(">>>WARNING (JDBCPedidoDetalleDAO:ultimoID): " + e.getMessage());
+		}
+		return id;
+	}
 
 }

@@ -34,7 +34,7 @@ public class ModificarDetalle extends HttpServlet {
 			int idDet= Integer.parseInt(request.getParameter("idDet"));
 			int prodID= Integer.parseInt(request.getParameter("prodID"));
 			int cantidad= Integer.parseInt(request.getParameter("cantidad"));
-			PedidoDetalle pedDet=new PedidoDetalle(idDet, cantidad, idCab, prodID);
+			PedidoDetalle pedDet=new PedidoDetalle(idDet, cantidad, idCab, prodID,"ste",0.2);
 			pedDetDAO.update(pedDet);
 			request.setAttribute("idCab", idCab);
 			url="/ActualizarPedidosDetalle";

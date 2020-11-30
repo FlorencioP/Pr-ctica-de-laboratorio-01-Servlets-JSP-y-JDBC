@@ -44,7 +44,7 @@ public class GuardarEditarProds extends HttpServlet {
 			
 			
 			
-			Producto proD = new Producto(id, nom, pre, des, img, idEmp, sel);
+			Producto proD = new Producto(id, nom, pre, des, img, idEmp, sel,'A');
 			
 			System.out.println(proD);
 			

@@ -9,11 +9,9 @@ public class PedidoDetalle {
 	private String nombre;
 	private double d;
 	
-<<<<<<< HEAD
+
 	public PedidoDetalle(int id, int cantidad, int FKPedCabId, int FKProdID, String string, double d) {
-=======
-	public PedidoDetalle(int id, int cantidad, int FKPedCabID, int FKProdID) {
->>>>>>> branch 'master' of https://github.com/FlorencioP/Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC.git
+
 		this.setId(id);
 		this.setCantidad(cantidad);
 		this.setFKPedCabID(FKPedCabId);

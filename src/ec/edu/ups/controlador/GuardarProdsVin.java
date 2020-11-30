@@ -55,7 +55,7 @@ public class GuardarProdsVin extends HttpServlet {
 			System.out.println(nom +"|"+pre +"|"+des+"|"+img+"|"+emp+"|"+sel+"|");
 			
 			
-			Producto prod = new Producto(prodM, nom, pre, des, img, emp, sel);
+			Producto prod = new Producto(prodM, nom, pre, des, img, emp, sel,'A');
 			 
 			System.out.println(prod);
 			

@@ -158,7 +158,7 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 			while (rs.next()) {
 				list.add(new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
 										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
-										rs.getInt("Categorias_cat_id")));
+										rs.getInt("Categorias_cat_id"),(rs.getString("prod_estado")).charAt(0)));
 			}
 		}catch(SQLException e) {
 

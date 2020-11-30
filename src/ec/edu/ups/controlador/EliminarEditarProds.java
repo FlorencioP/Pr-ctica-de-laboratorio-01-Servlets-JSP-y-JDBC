@@ -39,7 +39,7 @@ public class EliminarEditarProds extends HttpServlet {
 
 			
 			
-			Producto ste = new Producto(id, "",0 , "", "", 0, 0);
+			Producto ste = new Producto(id, "",0 , "", "", 0, 0,'g');
 			
 			proDao.delete(ste);;
 			
