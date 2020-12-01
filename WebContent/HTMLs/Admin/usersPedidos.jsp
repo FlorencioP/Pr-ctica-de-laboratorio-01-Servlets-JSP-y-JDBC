@@ -53,7 +53,7 @@
 	    		
 	    		
 	    		//out.println("<td class='tg-y698'><BUTTON onclick='CambiarEstad("+prod.getFk_usu_id()+", "+EstaR+" ,"+id+")'>Rechazar pedido</BUTTON></td>");
-	    		out.println("<td class=\"tg-y698\"><BUTTON onclick=\"CambiarEstad("+prod.getFk_usu_id()+", 'R' ,"+id+")\">Aprobar pedido</BUTTON></td>");
+	    		out.println("<td class=\"tg-y698\"><BUTTON onclick=\"CambiarEstad("+prod.getFk_usu_id()+", 'R' ,"+id+")\">Rechazar pedido</BUTTON></td>");
 	    		
 	    		
 	    		
