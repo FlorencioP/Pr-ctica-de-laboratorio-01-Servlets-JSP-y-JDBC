@@ -16,7 +16,9 @@ import javax.servlet.http.HttpSession;
  * Servlet Filter implementation class Filtro
  */
 @WebFilter({"/Filtro","/HTMLs/User/usrVin.jsp","/HTMLs/User/usrVincreate.jsp","/HTMLs/User/MostrarDetalles.jsp",
-			"/HTMLs/User/MostrarPedidos.jsp","/HTMLs/User/MensajeExito.jsp","/HTMLs/User/ActualizarDetalles.jsp"})
+			"/HTMLs/User/MostrarPedidos.jsp","/HTMLs/User/MensajeExito.jsp","/HTMLs/User/ActualizarDetalles.jsp",
+			"/HTMLs/Admin/TablaEditarProds.jsp","/HTMLs/Admin/TablonCrear.jsp","/HTMLs/Admin/usersEmpresa.jsp",
+			"/HTMLs/Admin/usersPedidos.jsp","/HTMLs/Admin/usersPedidosDetall.jsp"})
 public class Filtro implements Filter {
 
     /**
