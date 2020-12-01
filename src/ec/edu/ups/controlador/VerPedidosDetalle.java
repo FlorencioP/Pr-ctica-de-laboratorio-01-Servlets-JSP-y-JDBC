@@ -34,14 +34,32 @@ public class VerPedidosDetalle extends HttpServlet {
 		String url="";
 		try {
 			int id= Integer.parseInt(request.getParameter("cabeceraID"));
+			
+			
 			List<PedidoDetalle> list=pedidoDetDAO.listPed(id);
+			
+			
 			List<Producto> listPro = new ArrayList<Producto>();
+			
+			
+			
 			for(PedidoDetalle pD:list) {
 				System.out.println("pedido detalle: "+pD.getId());
-				listPro.add(productoDao.read(pD.getFKProdID()));
+				
+				Producto ste = productoDao.read(pD.getFKProdID());
+				
+				if (ste != null) {
+					listPro.add(ste);
+				} 
+
 			}
+			
+			System.out.println(listPro);
+			
+			
 			request.setAttribute("listDetalles", list);
 			request.setAttribute("listProducto", listPro);
+			
 			url="/HTMLs/User/MostrarDetalles.jsp";
 		}catch (Exception e) {
 			url = "/JSPs/error.jsp";

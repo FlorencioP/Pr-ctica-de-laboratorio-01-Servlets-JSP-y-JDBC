@@ -44,11 +44,25 @@ public class Login extends HttpServlet {
 		try {
 			String correo = request.getParameter("correo");
 			String password = request.getParameter("password");
+			
+			
 			usu = usuDAO.validarU(correo, password);
-			request.setAttribute("usu", usu);
-			url = "/HTMLs/User/usrVin.jsp";
+			
+			if (usu == null) {
+			
+			url = "/JSPs/nousuario.jsp";
+			}else if (usu.getRol() == 'U'){
+				request.setAttribute("usu", usu);
+				url = "/HTMLs/User/usrVin.jsp";
+			}else if (usu.getRol() == 'A'){
+				request.setAttribute("usu", usu);
+				url = "/HTMLs/Admin/AdmVin.jsp";
+			}
+			
+		
+		
 		} catch (Exception e) {
-			url = "/JSPs/error.jsp";
+			url = "/JSPs/nousuario.jsp";
 		}
 		getServletContext().getRequestDispatcher(url).forward(request, response);
 	}

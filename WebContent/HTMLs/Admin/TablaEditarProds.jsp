@@ -31,7 +31,7 @@
 			        <th class='tg-46ru'>Nombre</th>
 			        <th class='tg-46ru'>Precio</th>
 			        <th class='tg-46ru'>Descripcion</th>
-			        <th class='tg-46ru'>Imagen</th>
+			        <!-- <th class='tg-46ru'>Imagen</th> -->
 			        <th class='tg-46ru'>Categoria</th>
 			        <th class='tg-46ru'>Editar</th>
 			        <th class='tg-46ru'>Eliminar</th>
@@ -47,7 +47,7 @@
 			    		int id = prod.getId();
 			    		out.println("<tr><form> <td class='tg-y698'><input name='nombre"+id+"' type='text' value ='"+prod.getNombre()+"'/></td>"+
 			    		"<td class='tg-y698' ><input name='precio"+id+"' type='text' value ='"+prod.getPrecio()+"'/></td><td" +
-			    					" class='tg-y698' ><input name='descrip"+id+"' type='text' value ='"+prod.getDescripcion()+"'/></td><td class='tg-y698' ><input name='img"+id+"' type='text' value ='"+prod.getDirImagen()+"'/></td>" +
+			    					" class='tg-y698' ><input name='descrip"+id+"' type='text' value ='"+prod.getDescripcion()+"'/></td>" +   //<td class='tg-y698' ><input name='img"+id+"' type='text' value ='"+prod.getDirImagen()+"'/></td>
 			    						"<td class='tg-y698'><select name='sel"+id+"'> <option value='1'>Pan</option> <option value='2'>Vino</option>  <option value='3'>Quesos</option></select></td>"+
 			    							"<td class='tg-y698'><BUTTON onclick='editarprod("+id+")'>Guardar Edicion</BUTTON></td><td class='tg-y698'><BUTTON onclick='eliminarprod("+id+")'>ELIMINAR</BUTTON></form></td>");
 			       	}

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import ec.edu.ups.dao.DAOFactory;
 import ec.edu.ups.dao.ProductosDao;
+import ec.edu.ups.dao.UsuariosDAO;
 import ec.edu.ups.modelo.Producto;
+import ec.edu.ups.modelo.Usuario;
 
 /**
  * Servlet implementation class VisualizacionProductosIntitado
@@ -21,9 +23,12 @@ public class VisualizacionProductosInvitado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     private ProductosDao prodDAO;
-	
+	private UsuariosDAO usudao;
+    
+    
     public VisualizacionProductosInvitado() {
         prodDAO= DAOFactory.getFactory().getProductosDao();
+        usudao= DAOFactory.getFactory().getUsuariosDAO();
     }
 
 	/**
@@ -43,7 +48,16 @@ public class VisualizacionProductosInvitado extends HttpServlet {
 		try {
 			int idEmp=Integer.parseInt(request.getParameter("idEmp"));
 			List<Producto> list= prodDAO.findE(idEmp);
+			
+			Usuario ste = new Usuario(0, "", "", "", "", 'a', idEmp);
+			
 			request.setAttribute("listaProd", list);
+			
+			
+			request.setAttribute("idEmp", ste);
+			
+			
+			
 			url = "/HTMLs/Invitado/invVin.jsp";
 		}catch(Exception e) {
 			url = "/JSPs/error.jsp";

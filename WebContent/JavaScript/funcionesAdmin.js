@@ -174,7 +174,7 @@ function guardarDatos(){
 
 
 
-    if (nom == "" || pre == "" || des == "" || img == "" || empl == "" || sel == "") {
+    if (nom == "" || pre == "" || des == "" || empl == "" || sel == "") {
         console.log("Esta vacio");
 
     } else {

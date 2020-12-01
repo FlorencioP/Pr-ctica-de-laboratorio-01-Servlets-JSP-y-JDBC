@@ -19,17 +19,20 @@
 		<h5>Descripcion del Producto: </h5> 
 		<input name="desc" type="text" />
 		
-		<h5>Imagen del Producto: </h5> 
-		<input name="img" type="text" />
+		<!--  <h5>Imagen del Producto: </h5> -->
+		<input name="img" type="hidden" value="o" />
 		
 		<input name="empl" type= "hidden" value= "${e}"/>
 		
 		<h5>Selecione la categoria del producto: </h5> 
+		
+		
 		<select name="sel">
 	  		<option value="2">Vino</option> 
 		  	<option value="1">Pan</option>
 		  	<option value="3">Quesos</option>
 		</select>
+	
 	
 		<INPUT type="button" onclick="guardarDatos()"  value="Guardar"/>
 		

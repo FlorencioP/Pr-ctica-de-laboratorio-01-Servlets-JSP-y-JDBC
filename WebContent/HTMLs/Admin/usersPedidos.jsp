@@ -33,7 +33,7 @@
 	    	for (int i=0;i<list.size();i++){
 	    		PedidoCabecera prod=list.get(i);
 	    		int id = prod.getId();
-	    		out.println("<tr><form> <td class='tg-y698'><label name='nombre"+id+"'>Pedido N.-"+i+"</label></td>");
+	    		out.println("<tr><form> <td class='tg-y698'><label name='nombre"+id+"'>Pedido N.-"+(i+1)+"</label></td>");
 	    		char est = prod.getEstado();
 	    		if (est =='T' ){
 	    			out.println("<td class='tg-y698'><label > Tramite </label></td> <INPUT type = 'hidden' value = "+est+" name='estado"+id+"'/>");

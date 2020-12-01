@@ -31,6 +31,8 @@ public class VerPedidos extends HttpServlet {
 			int id= Integer.parseInt(request.getParameter("usuID"));
 			List<PedidoCabecera> list=pedCabDAO.findU(id);
 			request.setAttribute("listPedCab", list);
+			
+			
 			url="/HTMLs/User/MostrarPedidos.jsp";
 		}catch (Exception e) {
 			url = "/JSPs/error.jsp";

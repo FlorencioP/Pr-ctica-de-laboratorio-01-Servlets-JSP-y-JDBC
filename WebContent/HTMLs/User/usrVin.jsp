@@ -21,7 +21,7 @@
 		 <% PrintWriter out2= response.getWriter();%>
 		 
 	    <div id="volver">
-	        <a href="../../index.html"><img src="../../Recursos/logout.png"></a>
+	        <a href="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/index.html"><img src="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/Recursos/logout.png"></a>
 	    </div>
 	
 	    <div id="verpedidos">

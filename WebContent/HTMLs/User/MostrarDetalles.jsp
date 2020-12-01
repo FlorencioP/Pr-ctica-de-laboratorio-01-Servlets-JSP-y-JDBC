@@ -29,14 +29,16 @@
 	    </tr>
 	
 	    <% for (int i=0;i<list.size();i++){
+	    	
 	    		Producto prod=list2.get(i);
+	    		
 	    		PedidoDetalle pedDet=list.get(i);
 	    		Float total=(prod.getPrecio())*(pedDet.getCantidad());
 	    		out.println("<tr><td class='tg-y698'>"+prod.getNombre()+"</td><td class='tg-y698'>"+prod.getDescripcion()+"</td><td" +
 	    					" class='tg-y698'>"+pedDet.getCantidad()+"</td><td class='tg-y698'>"+prod.getPrecio()+
 	    					"</td><td class='tg-y698'>"+total+"</td><td class='tg-y698'><input type='button'"+
 	    					" value='Modificar' onclick='modificarPed(this,"+pedDet.getFKPedCabID()+","+pedDet.getId()+","+prod.getId()+")'></td>"+
-	    					"<td class='tg-y698'><input type='button' value='Eliminar' onclick='recogerDat(this)'></td>");
+	    					"<td class='tg-y698'><input type='button' value='Eliminar' onclick='eliminarDET("+pedDet.getId()+","+pedDet.getFKPedCabID()+")'></td>");
 	       }
 	    %>
 	

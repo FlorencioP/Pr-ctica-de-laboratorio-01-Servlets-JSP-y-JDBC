@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import ec.edu.ups.dao.DAOFactory;
 import ec.edu.ups.dao.ProductosDao;
 import ec.edu.ups.modelo.Producto;
+import ec.edu.ups.modelo.Usuario;
 
 /**
  * Servlet implementation class FiltrarProdPorCatInv
@@ -31,21 +32,43 @@ public class FiltrarProdPorCatInv extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url=null;
-		int idCat=Integer.parseInt(request.getParameter("idCat"));
+		
+		String idEmpP=request.getParameter("idEmpre");
+		
+		String idCatP=request.getParameter("idCat");
+		
+		
+		
+		System.out.println(idCatP+" y "+idEmpP);
+		
+		int idCat =Integer.parseInt(idCatP);
+		int idEmp =Integer.parseInt(idEmpP);
+		
+		System.out.println(idCat+"y"+idCat);
+		
+		
+		Usuario ste = new Usuario(0, "", "", "", "", 'a', idEmp);
+		
+		
 		if(idCat==0) {
 			System.out.println("idcat="+idCat);
+			
 			try {
-				int idEmp=1;
+				
 				List<Producto> list= prodDAO.findE(idEmp);
 				request.setAttribute("listaProd", list);
+				request.setAttribute("idEmp", ste);
+				
 				url = "/HTMLs/Invitado/ActualizarTablaInv.jsp";
 			}catch(Exception e) {
 				url = "/JSPs/error.jsp";
 			}
 		}else {
 			try {
-				List<Producto> list= prodDAO.findC(idCat,1);
+				List<Producto> list= prodDAO.findC(idCat,idEmp);
 				request.setAttribute("listaProd", list);
+				request.setAttribute("idEmp", ste);
+				
 				url = "/HTMLs/Invitado/ActualizarTablaInv.jsp";
 			}catch(Exception e) {
 				url = "/JSPs/error.jsp";

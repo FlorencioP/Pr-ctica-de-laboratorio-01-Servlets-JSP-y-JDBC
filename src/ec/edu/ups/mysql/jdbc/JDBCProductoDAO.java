@@ -101,16 +101,21 @@ public class JDBCProductoDAO extends JDBCGenericDAO<Producto, Integer> implement
 	@Override
 	public Producto read(Integer id) {
 		Producto producto = null;
-		ResultSet rs = conexion.query("Select * From Productos Where prod_id="+id);
+		ResultSet rs = conexion.query("Select * From Productos Where prod_id= "+id);
+		//System.out.println(rs);
 		try {
-			if(rs != null && rs.next() &&rs.getString("prod_estado")=="A") {
+			while (rs.next() && rs.getString("prod_estado").charAt(0)=='A') {
 				producto = new Producto(rs.getInt("prod_id"),rs.getString("prod_nombre"),rs.getFloat("prod_precio"),
-										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("Empresas_emp_id"),
-										rs.getInt("Categorias_cat_id"),(rs.getString("prod_estado")).charAt(0));
+										rs.getString("prod_descripcion"),rs.getString("prod_im"),rs.getInt("empresas_emp_id"),
+										rs.getInt("categorias_cat_id"),(rs.getString("prod_estado")).charAt(0));
+				
+				System.out.println(producto);
+			
 			}
 		}catch(SQLException e) {
 			System.out.println(">>>WARNING (JDBCPersonaDAO:read): " + e.getMessage());
 		}
+		
 		return producto;
 	}
 	

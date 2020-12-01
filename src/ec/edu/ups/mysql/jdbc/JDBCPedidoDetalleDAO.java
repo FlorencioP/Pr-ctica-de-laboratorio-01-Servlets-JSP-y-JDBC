@@ -9,6 +9,7 @@ import ec.edu.ups.dao.PedidoDetalleDAO;
 import ec.edu.ups.modelo.PedidoDetalle;
 
 public class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer> implements PedidoDetalleDAO{
+	
 	public List<PedidoDetalle> listPed(int id){
 		List<PedidoDetalle> lis= new ArrayList<PedidoDetalle>();
 		ResultSet rs = conexion.query("Select pedd_id, pedd_cantidad, pedidos_cab_pedc_id, productos_prod_id, prod_nombre, prod_precio From Pedidos_Detalle , productos Where pedidos_cab_pedc_id= "+id+ " and productos_prod_id = prod_id;");
@@ -25,7 +26,10 @@ public class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer>
 	
 	@Override
 	public void delete(PedidoDetalle pedidoDetalle) {
+		
+		
 		conexion.update("DELETE FROM Pedidos_Detalle WHERE pedD_id = " + pedidoDetalle.getId());
+	
 	}
 
 	@Override
@@ -36,9 +40,10 @@ public class JDBCPedidoDetalleDAO extends JDBCGenericDAO<PedidoDetalle, Integer>
 
 	@Override
 	public void update(PedidoDetalle pedidoDet) {
-		conexion.update("Update Pedidos_Detalle Set pedd_cantidad="+pedidoDet.getCantidad()+
-						",pedidos_cab_pedc_id="+pedidoDet.getFKPedCabID()+",productos_prod_id="+pedidoDet.getFKProdID()+
-						"where pedd_id="+pedidoDet.getId());
+		
+		
+		
+		conexion.update("Update Pedidos_Detalle Set pedd_cantidad= "+pedidoDet.getCantidad()+" where pedd_id= "+pedidoDet.getId()+";");
 	}
 
 	@Override
