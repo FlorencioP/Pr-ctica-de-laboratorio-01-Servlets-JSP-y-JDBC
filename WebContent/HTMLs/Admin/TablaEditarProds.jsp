@@ -38,6 +38,11 @@
 			       
 			    </tr>
 
+				
+				
+				<c:set var="u" scope="request" value="${usu}" />
+    			<% Usuario u = (Usuario) request.getAttribute("usu"); %>
+    
 
 
 
@@ -48,7 +53,27 @@
 			    		out.println("<tr><form> <td class='tg-y698'><input name='nombre"+id+"' type='text' value ='"+prod.getNombre()+"'/></td>"+
 			    		"<td class='tg-y698' ><input name='precio"+id+"' type='text' value ='"+prod.getPrecio()+"'/></td><td" +
 			    					" class='tg-y698' ><input name='descrip"+id+"' type='text' value ='"+prod.getDescripcion()+"'/></td>" +   //<td class='tg-y698' ><input name='img"+id+"' type='text' value ='"+prod.getDirImagen()+"'/></td>
-			    						"<td class='tg-y698'><select name='sel"+id+"'> <option value='1'>Pan</option> <option value='2'>Vino</option>  <option value='3'>Quesos</option></select></td>"+
+			    						"<td class='tg-y698'><select name='sel"+id+"'>");
+			    		
+			    		
+					   
+					    
+					    if (u.getFKEmpID() == 1){
+					    	out.println("<option value='1'>Pan</option> <option value='2'>Vino</option>  <option value='3'>Quesos</option>");
+					    }else if (u.getFKEmpID() == 2){
+					    	out.println("<option value='5'>Camisetas</option> <option value='6'>Pantalones</option>  <option value='7'>Casacas</option>");
+					    }else{
+					    	out.println("<option value='1'>Pan</option> <option value='4'>Cereales</option>  <option value='8'>Frutas</option>");
+					    }
+					    
+									    		
+			    		
+			    		
+			    		
+			    		
+			    		
+			    		
+			    		out.println("</select></td>"+
 			    							"<td class='tg-y698'><BUTTON onclick='editarprod("+id+")'>Guardar Edicion</BUTTON></td><td class='tg-y698'><BUTTON onclick='eliminarprod("+id+")'>ELIMINAR</BUTTON></form></td>");
 			       	}
 			    %>

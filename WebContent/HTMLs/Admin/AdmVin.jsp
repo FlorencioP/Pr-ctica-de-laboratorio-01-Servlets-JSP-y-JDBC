@@ -9,13 +9,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Menu de Admin</title>
-<link rel="stylesheet" type="text/css" href="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/CSS/directorioVin.css" />
+
+    <c:set var="u" scope="request" value="${usu}" />
+    <% Usuario u = (Usuario) request.getAttribute("usu"); %>
+    
+    <% 
+    
+    if (u.getFKEmpID() == 1){
+    	out.println("<link rel='stylesheet' type='text/css' href='/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/CSS/directorioVin.css' />");
+    }else if (u.getFKEmpID() == 2){
+    	out.println("<link rel='stylesheet' type='text/css' href='/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/CSS/directorioAer.css' />");
+    }else{
+    	out.println("<link rel='stylesheet' type='text/css' href='/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/CSS/directorio9ci.css' />");
+    }
+    %>
+    
 <script src='/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/JavaScript/funcionesAdmin.js'></script>
 </head>
 <body>
 
-	<c:set var="u" scope="request" value="${usu}" />
-    <p>Viñedo del Amanecer: Menu de Pedidos</p>
+	<% 
+    
+    if (u.getFKEmpID() == 1){
+    	out.println("<p>Viñedo del Amanecer: Administracion de Pedidos</p>");
+    }else if (u.getFKEmpID() == 2){
+    	out.println("<p>Aeropostale: Administracion de Pedidos</p>");
+    }else{
+    	out.println("<p>Mercado 9cito: Administracion de Pedidos</p>");
+    }
+    %>
+    
 
     <div id="volver">
         <a href="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/index.html"><img src="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/Recursos/logout.png"></a>

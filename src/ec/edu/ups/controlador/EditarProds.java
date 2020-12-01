@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.taglibs.standard.tag.common.sql.UpdateTagSupport;
+
 import ec.edu.ups.dao.DAOFactory;
 import ec.edu.ups.dao.ProductosDao;
 import ec.edu.ups.modelo.Producto;
+import ec.edu.ups.modelo.Usuario;
 
 /**
  * Servlet implementation class EditarProds
@@ -45,7 +48,10 @@ public class EditarProds extends HttpServlet {
 				List<Producto> list=proDao.findE(idEmp);
 				
 				request.setAttribute("listaProd", list);
-
+				
+				Usuario ste = new Usuario(0, "F", "F", "F", "F", 'F',  idEmp);
+				
+				request.setAttribute("usu", ste);
 			
 			
 			

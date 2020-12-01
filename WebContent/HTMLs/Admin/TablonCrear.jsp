@@ -1,3 +1,5 @@
+<!-- EN ESTE JSP SE MANDA UNA VARIABLE UNICA, Y NO TODO UN OBJECT  -->
+
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@page import="ec.edu.ups.modelo.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -26,14 +28,29 @@
 		
 		<h5>Selecione la categoria del producto: </h5> 
 		
-		
 		<select name="sel">
+		<% int u = (Integer) request.getAttribute("idEmp"); %>
+		<% 
+		
+		if ( u == 1){
+	    	out.println("<option value='1'>Pan</option> <option value='2'>Vino</option>  <option value='3'>Quesos</option>");
+	    }else if (u == 2){
+	    	out.println("<option value='5'>Camisetas</option> <option value='6'>Pantalones</option>  <option value='7'>Casacas</option>");
+	    }else{
+	    	out.println("<option value='1'>Pan</option> <option value='4'>Cereales</option>  <option value='8'>Frutas</option>");
+	    }
+		
+		
+		
+		%>
+
+		<!-- <select name="sel">
 	  		<option value="2">Vino</option> 
 		  	<option value="1">Pan</option>
 		  	<option value="3">Quesos</option>
+		</select> -->
+	
 		</select>
-	
-	
 		<INPUT type="button" onclick="guardarDatos()"  value="Guardar"/>
 		
 	</FORM>

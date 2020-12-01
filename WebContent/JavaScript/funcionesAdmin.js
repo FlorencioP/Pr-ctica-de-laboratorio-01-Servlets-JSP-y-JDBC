@@ -66,7 +66,7 @@ function editarprod(id) {
 	var nom = document.getElementsByName("nombre"+id)[0].value;
     var pre = document.getElementsByName("precio"+id)[0].value;
     var des = document.getElementsByName("descrip"+id)[0].value;
-    var img = document.getElementsByName("img"+id)[0].value;
+    var img = "Nohay";
 	var sel = document.getElementsByName("sel"+id)[0].value;
 	var empr = document.getElementsByName("IDEmpre")[0].value;
 	
