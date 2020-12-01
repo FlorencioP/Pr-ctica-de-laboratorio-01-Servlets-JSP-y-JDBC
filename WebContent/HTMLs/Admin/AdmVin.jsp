@@ -38,39 +38,41 @@
     	out.println("<p>Mercado 9cito: Administracion de Pedidos</p>");
     }
     %>
-    
-
-    <div id="volver">
-        <a href="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/index.html"><img src="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/Recursos/logout.png"></a>
-    </div>
-
-
-    <form id="regProd">
-        <input type="button" value="Registrar Producto" onclick="crearprods(${u.FKEmpID})" /><br>
-    </form>
+	    
+	<div id = "OpsAdm">
+	    <div id="volver">
+	        <a href="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/index.html"><img src="/Practica_de_laboratorio_01_Servlets_JSP_y_JDBC/Recursos/logout.png"></a>
+	    </div>
 
 
-
-    <form id="editProd">
-        <input type="button" value="Modificar Productos" onclick="editarprods(${u.FKEmpID})" /><br>
-    </form>
-
-	<form id="manPeds">
-        <input type="button" value="Manejar Pedidos" onclick="manejoPeds(${u.FKEmpID})" /><br>
-    </form>
-
-	<!--  
-	<h1>Persona encontrada</h1>		
-
-	<p>Id: ${u.id}</p>
-	<p>Nombre: ${u.nombre}</p>
-	<p>Apellido: ${u.apellido}</p>
-	<p>Correo: ${u.correo}</p>
-	<p>Password: ${u.password}</p>
-	<p>Rol: ${u.rol}</p>
-	<p>EmpresaID: ${u.FKEmpID}</p>-->
+	    <form id="regProd">
+	        <input type="button" value="Registrar Producto" onclick="crearprods(${u.FKEmpID})" /><br>
+	    </form>
 	
-	<INPUT type = "hidden" value = "${u.FKEmpID}" name="IDEmpre"/>
+	
+	
+	    <form id="editProd">
+	        <input type="button" value="Modificar Productos" onclick="editarprods(${u.FKEmpID})" /><br>
+	    </form>
+	
+		<form id="manPeds">
+	        <input type="button" value="Manejar Pedidos" onclick="manejoPeds(${u.FKEmpID})" /><br>
+	    </form>
+	
+		<!--  
+		<h1>Persona encontrada</h1>		
+	
+		<p>Id: ${u.id}</p>
+		<p>Nombre: ${u.nombre}</p>
+		<p>Apellido: ${u.apellido}</p>
+		<p>Correo: ${u.correo}</p>
+		<p>Password: ${u.password}</p>
+		<p>Rol: ${u.rol}</p>
+		<p>EmpresaID: ${u.FKEmpID}</p>-->
+		
+		<INPUT type = "hidden" value = "${u.FKEmpID}" name="IDEmpre"/>
+	</div>
+
 
 	<div id = "PantallaAdm">
 	

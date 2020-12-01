@@ -12,21 +12,21 @@
 	
 	<FORM id="formularioM" >
 	
-		<h5>Nombre del Producto: </h5> 
-		<input name="nombre" type="text" />
+		<label for="nombre">Nombre del Producto: </label> 
+		<input name="nombre" type="text" /> <BR />
 		
-		<h5>Precio del Producto: </h5> 
-		<input name="precio" type="text" />
+		<label for="precio">Precio del Producto: </label> 
+		<input name="precio" type="text" /><BR />
 		
-		<h5>Descripcion del Producto: </h5> 
-		<input name="desc" type="text" />
+		<label for="desc">Descripcion del Producto: </label> 
+		<input name="desc" type="text" /><BR />
 		
 		<!--  <h5>Imagen del Producto: </h5> -->
 		<input name="img" type="hidden" value="o" />
 		
 		<input name="empl" type= "hidden" value= "${e}"/>
 		
-		<h5>Selecione la categoria del producto: </h5> 
+		<label for="sel">Selecione la categoria del producto: </label> 
 		
 		<select name="sel">
 		<% int u = (Integer) request.getAttribute("idEmp"); %>
@@ -51,6 +51,8 @@
 		</select> -->
 	
 		</select>
+		<BR />
+		
 		<INPUT type="button" onclick="guardarDatos()"  value="Guardar"/>
 		
 	</FORM>

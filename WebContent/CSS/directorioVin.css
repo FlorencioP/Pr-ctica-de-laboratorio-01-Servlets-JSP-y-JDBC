@@ -128,3 +128,56 @@ b {
 #volver img:hover {
     width: 51%;
 }
+
+
+#verpedidos {
+    clear: both;
+    float: left;
+    margin-left: 37%;
+    margin-right:5%;
+}
+
+#crear{
+    padding-top:2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pantalla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+#OpsAdm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#editProd{
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+#OpsBusca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    background-color: rgb(255, 255, 255, 0.75);
+    text-align:center;
+}
+
+#formularioM{
+    justify-content: center;
+    align-items: center;
+}
+

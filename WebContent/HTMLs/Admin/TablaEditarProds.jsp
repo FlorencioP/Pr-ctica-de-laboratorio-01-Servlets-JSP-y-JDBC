@@ -7,21 +7,42 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+	<c:set var="u" scope="request" value="${usu}" />
+    <% Usuario u = (Usuario) request.getAttribute("usu"); %>
+	
 	<c:set var="p" scope="request" value="${listaProd}" />
 	
 	
+	
+	<div id="OpsBusca">
+	
 	<label for="cat">Seleccione una categoria para buscar:</label>
+        
+        
         <select name="cat" id="cat">
-        	<option value="1">Pan</option>
-            <option value="2">Vino</option>
-            <option value="3">Quesos</option>
+        	<% 
+						if (u.getFKEmpID() == 1){
+					    	out.println("<option value='1'>Pan</option> <option value='2'>Vino</option>  <option value='3'>Quesos</option>");
+					    }else if (u.getFKEmpID() == 2){
+					    	out.println("<option value='5'>Camisetas</option> <option value='6'>Pantalones</option>  <option value='7'>Casacas</option>");
+					    }else{
+					    	out.println("<option value='1'>Pan</option> <option value='4'>Cereales</option>  <option value='8'>Frutas</option>");
+					    }
+        	%>
         </select>
+        
+        
+        
         
     <label for="busc">Ingrese una palabra o letra: </label>
     <input name="busc" type="text"/>
         
     <input type="button" value="Buscar: " onclick="buscarProds()"/><br>
+	
+	</div>
+	
+	
+	
 	
 	
 			<% List<Producto> list = (List<Producto>) request.getAttribute("listaProd"); %>
@@ -38,10 +59,6 @@
 			       
 			    </tr>
 
-				
-				
-				<c:set var="u" scope="request" value="${usu}" />
-    			<% Usuario u = (Usuario) request.getAttribute("usu"); %>
     
 
 
