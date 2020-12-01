@@ -9,9 +9,9 @@ import java.sql.ResultSet;
 public class ContextJDBC {
 	
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost:8887/empresascorp?serverTimezone=UTC";
+	private static final String URL = "jdbc:mysql://localhost:3306/empresascorp?serverTimezone=UTC";
 	private static final String USER = "root";
-	private static final String PASS = "florencio";
+	private static final String PASS = "P4t1t0.123@456";
 	
 	private static ContextJDBC jdbc = null;
 	private Statement statement = null;
